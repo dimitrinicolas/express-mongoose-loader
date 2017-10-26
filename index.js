@@ -47,4 +47,4 @@ function loadersInit(req, res, next) {
 
 }
 
-export default loadersInit;
+exports = module.exports = loadersInit;
