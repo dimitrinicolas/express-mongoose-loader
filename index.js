@@ -1,5 +1,5 @@
-import mongoose from 'mongoose';
-import isArray from 'isarray';
+var mongoose = require('mongoose');
+var isArray = require('isarray');
 
 function loadersInit(req, res, next) {
 

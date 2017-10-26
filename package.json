@@ -1,6 +1,6 @@
 {
   "name": "express-mongoose-loader",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Create mongodb models loaders scripts for your express app",
   "author": "Dimitri NICOLAS",
   "license": "MIT",
