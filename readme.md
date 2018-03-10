@@ -1,6 +1,7 @@
 # Express Mongoose Loader
 
-Create MongoDB models loaders scripts for your express app
+Create MongoDB models loaders scripts for your express app, saving you thoses
+numerous database requests.
 
 ## Installation
 
@@ -16,7 +17,9 @@ First call for `express-mongoose-loader` to set up loading system.
 app.use(require('express-mongoose-loader'));
 ```
 
-Then, create a mongoose model loader by requesting mongoose id list to load with the function `req.requestList(listName)`. Add item's data into the object `req.db[listName]` created by `express-mongoose-loader`.
+Then, create a mongoose model loader by requesting mongoose id list to load
+with the function `req.requestList(listName)`. Add item's data into the object
+`req.db[listName]` created by `express-mongoose-loader`.
 
 ```js
 import mongoose from 'mongoose';
