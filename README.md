@@ -25,24 +25,24 @@ with the function `req.requestList(listName)`. Add item's data into the object
 import mongoose from 'mongoose';
 import Article from './model/article';
 
-let articlesLoaders = (req, res, next) => {
-    Article.find(
-        {
-            _id: { $in: req.requestList('articles') }
-        },
-        (err, docs) => {
-            if (!err && docs) {
-                for (const doc of docs) {
-                    req.db.articles[doc.id] = {
-                        title: doc.title,
-                        datetime: doc.datetime,
-                        content: doc.content
-                    };
-                }
-            }
-            next();
+let articlesLoaders = (req, res , next) => {
+  Article.find(
+    {
+      _id: { $in: req.requestList('articles') }
+    },
+    (err, docs) => {
+      if (!err && docs) {
+        for (const doc of docs) {
+          req.db.articles[doc.id] = {
+            title: doc.title,
+            datetime: doc.datetime,
+            content: doc.content
+          };
         }
-    );
+      }
+      next();
+    }
+  );
 }
 ```
 
@@ -76,60 +76,60 @@ app.use(mongooseLoader);
 
 /* Create a basic mongoose model */
 var ArticleSchema = new mongoose.Schema({
-    title: String,
-    datetime: Date,
-    content: String
+  title: String,
+  datetime: Date,
+  content: String
 });
 const Article = mongoose.model('article', ArticleSchema);
 
 /* Create a basic mongoose loader */
 let articlesLoaders = (req, res, next) => {
-    Article.find(
-        {
-            _id: { $in: req.requestList('articles') }
-        },
-        (err, docs) => {
-            if (!err && docs) {
-                for (const doc of docs) {
-                    req.db.articles[doc.id] = {
-                        title: doc.title,
-                        datetime: doc.datetime,
-                        content: doc.content
-                    };
-                }
-            }
-            next();
+  Article.find(
+    {
+      _id: { $in: req.requestList('articles') }
+    },
+    (err, docs) => {
+      if (!err && docs) {
+        for (const doc of docs) {
+          req.db.articles[doc.id] = {
+          title: doc.title,
+          datetime: doc.datetime,
+          content: doc.content
+          };
         }
-    );
+      }
+      next();
+    }
+  );
 }
 
 /* Create a basic articles loader middleware */
 let loadArticles = (req, res, next) => {
-    Article.find(
-        {
-            public: true
-        },
-        (err, articles) => {
-            if (!err && articles) {
-                for (const article of articles) {
-                    /* Ask for article data loading */
-                    req.load('articles', article.id);
-                }
-            }
+  Article.find(
+    {
+      public: true
+    },
+    (err, articles) => {
+      if (!err && articles) {
+        for (const article of articles) {
+          /* Ask for article data loading */
+          req.load('articles', article.id);
         }
-    );
+      }
+    }
+  );
 }
 
 /* Basic index page */
 app.use([loadArticles, articlesLoaders]);
 app.get('/',
-    (req, res) => {
-        let content = '';
-        for (const article of req.db.articles) {
-            content += '<h1>' + article.title + '</h1><br />';
-        }
-        res.send(content);
+  (req, res) => {
+    let content = '';
+    for (const article of req.db.articles) {
+      content += '<h1>' + article.title + '</h1><br />';
     }
+    res.send(content);
+  }
 );
 ```
 

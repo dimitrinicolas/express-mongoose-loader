@@ -1,14 +1,17 @@
 {
   "name": "express-mongoose-loader",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Create mongodb models loaders scripts for your express app",
-  "author": "Dimitri NICOLAS",
   "license": "MIT",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dimitrinicolas/express-mongoose-loader.git"
   },
-  "repository": "dimitrinicolas/express-mongoose-loader.git",
+  "author": {
+    "name": "Dimitri NICOLAS",
+    "email": "dimitri@fivecorp.fr"
+  },
   "keywords": [
     "express",
     "middleware",
@@ -16,8 +19,12 @@
     "mongoose",
     "model"
   ],
+  "bugs": {
+    "url": "https://github.com/dimitrinicolas/express-mongoose-loader/issues"
+  },
+  "homepage": "https://github.com/dimitrinicolas/express-mongoose-loader",
   "dependencies": {
-    "isarray": "^2.0.2",
-    "mongoose": "^4.12.4"
+    "isarray": "^2.0.4",
+    "mongoose": "^5.2.15"
   }
 }
