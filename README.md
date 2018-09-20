@@ -1,4 +1,6 @@
 # Express Mongoose Loader
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fdimitrinicolas%2Fexpress-mongoose-loader.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fdimitrinicolas%2Fexpress-mongoose-loader?ref=badge_shield)
+
 
 Create MongoDB models loaders scripts for your express app, saving you thoses
 numerous database requests.
@@ -136,3 +138,6 @@ app.get('/',
 ## License
 
 This project is licensed under the [MIT license](LICENSE).
+
+
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fdimitrinicolas%2Fexpress-mongoose-loader.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fdimitrinicolas%2Fexpress-mongoose-loader?ref=badge_large)
